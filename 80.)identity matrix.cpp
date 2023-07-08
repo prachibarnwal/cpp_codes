@@ -39,6 +39,11 @@ int main()
 				{
 					cnt++;
 				}
+				else if(i!=j && arr[i][j]!=0)
+				{
+					cnt = 0;
+					break;
+				}
 			}
 		}
 		if (cnt == r)
