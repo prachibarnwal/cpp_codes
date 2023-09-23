@@ -108,7 +108,7 @@ void Matrix::input()
 }
 void Matrix::show()
 {
-	cout<<"\nArray Elements Are : "<<endl;
+	cout<<"\nMatrix Elements Are : "<<endl;
 	for(i =0;i<r;i++)
 	{
 		for(j=0;j<c;j++)
