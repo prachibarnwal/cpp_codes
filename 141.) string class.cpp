@@ -39,7 +39,7 @@ int main()
 	String a,b,c;
 	bool z;
 	a.input();
-	b = reverse(a);
+	b = a.reverse();
 	b.show();
 	return 0;
 }
