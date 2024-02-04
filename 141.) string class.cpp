@@ -51,54 +51,13 @@ class String
 
 int main()
 {
-	String a, b,c,d;
+	String a, b, c, d;
 	bool z;
-	int l;
-	cin>>a;
-	cout<<a.charAt(5);
-	/*
-	b = a.subString(2,6);
-	cout<<b;
-	cin>>b;
-	l = a.indexOf(b);
-	if(l != -1)
-	cout<<"Found at "<<l<<endl;
-	else
-	cout<<"Not Found"<<endl;
-	a.setCharAt(2, 'o');
-	cout<<a;
-	cout<<a[3];
-	b = a.reverse();
-	b.show();
-	c = a + b;
-	c.show();
-	d = c * 5;
-	d.show();
-	b.input();
-	if(a==b)
-		cout<<"Strings Are Same "<<endl;
-	else
-		cout<<"Strings Are Not Same"<<endl;
-	z = a.ispalin();
-	cout<<z<<endl;
-	
-	b = a.isupper();
-	b.show();
-	b = a.islower();
-	b.show();
-	b = a.istitle();
-	b.show();
-	b = a.istoggle();
-	b.show();
-	b = a.issentence();
-	cout<<b;
-	l = a.len();
-	cout<<"Length of String is : "<<l<<endl;
-	
-
-	int ch;
+	int m, n, ch;
+	char x;
 	do
 	{
+		cout<<"\n*************************************************"<<endl;
 		cout<<"Press 1 : Concatenate Two Strings"<<endl;
 		cout<<"Press 2 : Replicate a String"<<endl;
 		cout<<"Press 3 : Compare Two Strings"<<endl;
@@ -109,44 +68,99 @@ int main()
 		cout<<"Press 8 : Convert a String in TitleCase"<<endl;
 		cout<<"Press 9 : Convert a String in SentenceCase"<<endl;
 		cout<<"Press 10 : Convert a String in ToggleCase"<<endl;
-		cout<<"Press 11 : Exit"<<endl<<endl;
+		cout<<"Press 11 : Get Character from a Specified Position"<<endl;
+		cout<<"Press 12 : Set Character at a Specific Position"<<endl;
+		cout<<"Press 13 : Search for a Substring in Another String"<<endl;
+		cout<<"Press 14 : Find Index of a Substring "<<endl;
+		cout<<"Press 15 : Exit"<<endl;
+		cout<<"*************************************************\n"<<endl;
 		cout<<"Enter Your Choice : ";
 		cin>>ch;
 		switch(ch)
 		{
+			case 14:
+				cin>>a;
+				cout<<"SUB STRING - ";
+				cin>>b;
+				n = a.indexOf(b);
+				cout<<"Substring Found at Index : "<<n<<endl;
+				break;
+			case 11:
+				cin>>a;
+				cout<<"Enter a Position : ";
+				cin>>n;
+				cout<<"Character at Position "<<n<<" is "<<a[n]<<endl;
+				break;
+			case 12:
+				cin>>a;
+				cout<<"Enter the Position : ";
+				cin>>n;
+				cout<<"Enter the Character : ";
+				cin>>x;
+				a.setCharAt(n, x);
+				cout<<"Updated "<<a;
+				break;
+			case 13:
+				cin>>a;
+				cout<<"Enter the Starting & Ending Position : ";
+				cin>>m>>n;
+				b = a.subString(m, n);
+				cout<<"Found Sub"<<b;
+				break;
+			case 8:
+				cin>>a;
+				b = a.istitle();
+				cout<<"Title Case "<<b;
+				break;
+			case 9:
+				cin>>a;
+				b = a.issentence();
+				cout<<"Sentence Case "<<b;
+				break;
+			case 10:
+				cin>>a;
+				b = a.istoggle();
+				cout<<"Toggle Case "<<b;
+				break;
+			case 7:
+				cin>>a;
+				b = a.islower();
+				cout<<"Lower Case "<<b;
+				break;
+			case 6:
+				cin>>a;
+				b = a.isupper();
+				cout<<"Upper Case "<<b;
+				break;
 			case 4:
-				b.input();
+				cin>>b;
 				c = b.reverse();
-				c.show();
+				cout<<"Reversed "<<c;
 				break;
 			case 3:
-				b.input();
-				c.input();
+				cin>>b>>c;
 				if(b==c)
 					cout<<"Strings Are Same"<<endl;
 				else
 					cout<<"Strings Are Not Same"<<endl;
 				break;
 			case 1:
-				b.input();
-				c.input();
-				d = b+c;
+				cin>>a>>b;
+				d = a + b;
 				cout<<"Concatenated ";
-				d.show();
+				cout<<d;
 				break;
 			case 2:
-				b.input();
+				cin>>b;
 				int n;
 				cout<<"Enter How Many Time you want the String to Replicate : ";
 				cin>>n;
 				c = b * n;
 				cout<<"Replicated ";
-				c.show();	
+				cout<<c;	
 				break;	
 		}
-	}while(ch != 11);
-	*/
-	
+	}while(ch != 15);
 	return 0;
 }
 /*
@@ -162,6 +176,13 @@ bool String::ispalin()
 		return false;
 }
 */
+istream& operator >>(istream &x, String &y)
+{
+	cout<<"Enter the String : ";
+	//cin.getline(y.a,100);
+	cin>>y.a;
+	return x;
+}
 char String::operator [](int p)
 {
 	if(p >= 0 && p < len())
@@ -300,12 +321,6 @@ String String::islower()
 	}
 	b.a[i++] = '\0';
 	return b;
-}
-istream& operator >>(istream &x, String &y)
-{
-	cout<<"Enter the String : ";
-	cin.getline(y.a,100);
-	return x;
 }
 ostream& operator <<(ostream &x, String &y)
 {
