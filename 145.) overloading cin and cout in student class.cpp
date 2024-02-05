@@ -15,9 +15,7 @@ int main()
 {
 	Student a, b;
 	cin>>a>>b;
-	//cin>>b;
 	cout<<a<<b;
-	//cout<<b;
 	return 0;
 }
 
