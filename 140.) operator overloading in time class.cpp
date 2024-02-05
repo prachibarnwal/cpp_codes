@@ -76,35 +76,6 @@ class Time
 			}
 			return t;	
 		}
-		/*
-		// operator overloading '++'
-		Time operator ++()
-		{
-			Time t;
-			int a = 0;
-			a += h * 3600 + m * 60 + s;
-			a += 1;
-		 
-			t.h = a / 3600;
-			a %= 3600;
-			t.m = a / 60;
-			a %= 60;
-			t.s = a;
-			
-			if(t.s >= 60)
-			{
-				a = t.s / 60;
-				t.s %= 60;
-				t.m += a;
-			}
-			if(t.m >= 60)
-			{
-				a = t.m / 60;
-				t.m %= 60;
-				t.h += a;
-			}
-			return t;
-		}*/
 		// operator overloading '+'
 		Time operator +(Time x)
 		{
@@ -130,7 +101,6 @@ class Time
 		// operator overloading '>'
 		bool operator >(Time t)
 		{
-			//Time x;
 			int a=0,b=0;
 			a += h * 3600 + m * 60 + s;
 			b += t.h * 3600 + t.m * 60 + t.s;
@@ -142,7 +112,6 @@ class Time
 		// operator overloading '<'
 		bool operator <(Time t)
 		{
-			//Time x;
 			int a=0,b=0;
 			a += h * 3600 + m * 60 + s;
 			b += t.h * 3600 + t.m * 60 + t.s;
@@ -154,7 +123,6 @@ class Time
 		// operator overloading '=='
 		bool operator ==(Time t)
 		{
-			//Time x;
 			int a=0,b=0;
 			a += h * 3600 + m * 60 + s;
 			b += t.h * 3600 + t.m * 60 + t.s;
@@ -162,6 +130,24 @@ class Time
 				return true;
 			else
 				 return false;
+		}
+		// operator overloading '++'
+		void operator ++()
+		{
+			s++;
+			int a;
+			if(s >= 60)
+			{
+				a = s / 60;
+				s %= 60;
+				m += a;
+			}
+			if(m >= 60)
+			{
+				a = m / 60;
+				m %= 60;
+				h += a;
+			}
 		}
 };
 int main()
@@ -196,6 +182,8 @@ int main()
 	c = a-b;
 	cout<<"Difference of Entered ";
 	c.show();
-	
+	++a;
+	cout<<"\nTime After Increasing 1 Second\n";
+	a.show();
 	return 0;
 }
