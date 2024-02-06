@@ -19,11 +19,14 @@ setCharAt(pos, character)
 charAt(pos)
 subString(Strt_pos, end_pos)
 indexOf(strng) 
+len() 
 */
 
 #include<iostream>
 using namespace std;
+
 int i;
+bool compare(char a[], char b[]);
 
 class String
 {
@@ -52,7 +55,6 @@ class String
 int main()
 {
 	String a, b, c, d;
-	bool z;
 	int m, n, ch;
 	char x;
 	do
@@ -158,29 +160,55 @@ int main()
 				c = b * n;
 				cout<<"Replicated ";
 				cout<<c;	
-				break;	
+				break;
+			case 5:
+				cin>>a;
+				if(a.ispalin())
+					cout<<"Entered String is a Palindrome"<<endl;
+				else
+					cout<<"Entered String is Not a Palindrome"<<endl;
+				break;
 		}
 	}while(ch != 15);
 	return 0;
 }
-/*
+
 bool String::ispalin()
 {
 	String b;
 	b = reverse();
-	if(b.a == a)
+	if(compare(b.a, a))
 	{
 		return true;
 	}
 	else
 		return false;
 }
-*/
+bool compare(char a[], char b[])
+{
+	int x,y, cnt = 0;
+	for(x = 0;a[x]!='\0';x++);
+	for(y=0;b[y]!='\0';y++);
+	if(x==y)
+	{
+		for(int i = 0; i<x;i++)
+		{
+			if(a[i] == b[i])
+				cnt++;
+		}
+		if(cnt == x)
+			return true;
+		else
+			return false;
+	}
+	else
+		return false;	
+}
 istream& operator >>(istream &x, String &y)
 {
 	cout<<"Enter the String : ";
-	//cin.getline(y.a,100);
-	cin>>y.a;
+	fflush(stdin);
+	cin.getline(y.a,100);
 	return x;
 }
 char String::operator [](int p)
