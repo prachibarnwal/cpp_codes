@@ -1,3 +1,6 @@
+/*
+to input number of products and input cost, qty, prodict name and show the bill 
+*/
 #include<iostream>
 using namespace std;
 struct Product
@@ -24,10 +27,10 @@ int main()
 		bill += a[i].amount;
 		
 	}
-	cout<<"NAME\tCOST\tQTY\tAmount"<<endl;
+	cout<<"NAME\t\tCOST\t\tQTY\t\tAmount"<<endl;
 	for(i=0;i<n;i++)
 	{
-		cout<<a[i].name<<"\t"<<a[i].cost<<"\t"<<a[i].qty<<"\t"<<a[i].amount<<endl;
+		cout<<a[i].name<<"\t\t"<<a[i].cost<<"\t\t"<<a[i].qty<<"\t\t"<<a[i].amount<<endl;
 	}
 	cout<<"Total bill to be Payed : "<<bill;
 	return 0;
