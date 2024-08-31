@@ -24,6 +24,13 @@ void display(int que[],int front,int rear)
 	{
 		cout<<"Queue is Empty"<<endl;
 	}
+	else if(rear<front)
+	{
+		for(int i = front; i < MAX; i++)
+			cout<<que[i]<<endl;
+		for(int i = 0; i <= rear; i++)
+			cout<<que[i]<<endl;
+	}
 	else
 	{
 		for(int i=front;i<=rear;i++)
