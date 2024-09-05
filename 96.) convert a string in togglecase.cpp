@@ -16,7 +16,6 @@ int main()
 			name[i] -= 32;
 		else if(name[i]>='A' && name[i]<='Z')
 			name[i] += 32;
-	
 	}
 	cout<<"string in title case : "<<name;
 	return 0;
