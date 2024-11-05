@@ -1,4 +1,5 @@
-//to input an array and define a function to sort the array in increasing order
+//to input an array and define a function to 
+//sort the array in increasing order
 #include<iostream>
 using namespace std;
 void sort(int arr[],int n);
@@ -19,11 +20,11 @@ int main()
 void sort(int arr[],int n)
 {
 	int i,j,temp;
-	for (i=0;i<n;i++)
+	for (i=0;i<n-1;i++)
 	{
-		for (j=0;j<n;j++)
+		for (j=i+1;j<n;j++)
 		{
-			if (arr[i] < arr[j])
+			if (arr[i] > arr[j])
 			{
 				temp = arr[i];
 				arr[i] = arr[j];
