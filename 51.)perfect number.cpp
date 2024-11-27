@@ -1,4 +1,5 @@
 //to check whether a number is perfect or not
+//number which is equal to sum of its factors
 #include<iostream>
 using namespace std;
 int main()
